@@ -1,0 +1,82 @@
+﻿@model ECommerceSite.Models.UserModel
+
+@{
+    ViewBag.Title = "NewRegistration";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+<h2>New Registration</h2>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#lblMessage").hide();
+
+        $("#CreateUser").click(function () {
+            var userName = $("#UserName").val();
+            var Password = $("#Password").val();
+            var Email = $("#Email").val();
+
+            var user = {
+                UserModel: { UserName: $("#UserName"), Password: $("#Password"), Email : $("#Email") }};
+
+            $.post('/LogOn/Create', { UserName: $("#UserName").val(), Password: $("#Password").val(),Email : $("#Email") },
+                 function (data) {
+                     if(data.data=="failed")
+                     {
+                         $("#lblMessage").show();
+                         $("#lblMessage").innerHtml('Invalid User');
+                     }
+
+            });
+        })
+    });
+
+
+</script>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>UserModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Go"  id="CreateUser" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+

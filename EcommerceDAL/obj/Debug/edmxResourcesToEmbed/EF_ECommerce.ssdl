@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EcommerceModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EcommerceModelStoreContainer">
+    <EntitySet Name="Orders" EntityType="EcommerceModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="EcommerceModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="EcommerceModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Users_Orders" Association="EcommerceModel.Store.FK_Users_Orders">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Products" Association="EcommerceModel.Store.FK_Users_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" Nullable="true" />
+    <Property Name="Status" Type="int" Nullable="true" />
+    <Property Name="UserId" Type="int" Nullable="true" />
+    <Property Name="ProductId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product1" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Price" Type="float" Nullable="true" />
+    <Property Name="Name" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="Status" Type="bit" Nullable="true" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Users_Orders">
+    <End Role="Users" Type="EcommerceModel.Store.Users" Multiplicity="0..1" />
+    <End Role="Orders" Type="EcommerceModel.Store.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Products">
+    <End Role="Products" Type="EcommerceModel.Store.Products" Multiplicity="0..1" />
+    <End Role="Orders" Type="EcommerceModel.Store.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
