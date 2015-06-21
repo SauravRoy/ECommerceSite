@@ -1,19 +1,15 @@
-﻿@model ECommerceSite.Models.OrderModel
+﻿
 
-@{
-    ViewBag.Title = "Welcome";
-}
 
-<h2>Welcome User !</h2>
+<h1>Welcome !</h1>
 
-<th></th>
 
-<table class="table table-bordered" border="1">
-    @foreach (var item in Model.products)
-    {
-        <tr>
-            <td>@item.ID</td><td>@item.Name</td><td>@item.Price</td><td>@Html.ActionLink("Add to cart", "AddToCart", "Home")</td>
-        </tr>
-    }
 
-    </table>
+<p>
+    @Html.ActionLink("Go To Cart", "Index","Cart")
+    
+</p>
+
+<p>
+    @Html.ActionLink("View Order Details", "Details", "Cart")
+</p>

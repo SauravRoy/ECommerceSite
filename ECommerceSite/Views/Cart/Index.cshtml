@@ -1,0 +1,66 @@
+﻿@model ECommerceSite.Models.OrderModel
+
+
+
+<h2>Order Creation</h2>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    });
+
+
+</script>
+
+<p>
+    @Html.ActionLink("Create Order", "CreateOrder","Cart")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Product #
+        </th>
+        <th>
+            Product
+        </th>
+        <th>
+            Price ($) 
+        </th>
+    </tr>
+
+@foreach (var item in Model.products)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Add to Cart","AddToCart", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            
+        </td>
+    </tr>
+}
+
+</table>
+
+<div id="ProductCart">
+
+   @{
+       if (Model.Visible)
+       {
+           Html.RenderPartial("Edit", Model.SelectedProducts);
+       }
+
+   }
+</div>

@@ -12,17 +12,15 @@
         $("#btnLogOn").click(function () {
             var userName = $("#UserName").val();
             var Password = $("#Password").val();
-
+            
             var user = { 
                 UserModel: { UserName: $("#UserName"), Password: $("#Password") }};
 
             $.post('/LogOn/AuthUser', { UserName: $("#UserName").val(), Password: $("#Password").val() },
                  function (data) {
-                     if(data.data=="failed")
-                     {
-                         $("#lblMessage").show();
-                         $("#lblMessage").innerHtml('Invalid User');
-                     }
+
+                     
+                     alert(data);
 
             });
         })

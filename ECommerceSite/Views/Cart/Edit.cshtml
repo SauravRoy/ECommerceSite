@@ -1,0 +1,65 @@
+﻿@model List<ECommerceSite.Models.ProductModel>
+
+<h2>Your Cart</h2>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+
+    $(document).ready(function()
+    {
+        
+    })
+
+</script>
+
+<table class="table">
+    <tr>
+        <th>
+            Product #
+        </th>
+        <th>
+            Product
+        </th>
+        <th>
+            Price ($)
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Total
+        </th>     
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => item.Qty);
+
+            </td>
+            
+            
+            <td>
+                @Html.ActionLink("Remove From Cart", "RemoveFromCart", new { id = item.ID })
+
+                
+
+            </td>
+        </tr>
+    }
+
+</table>
+
