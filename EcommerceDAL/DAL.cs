@@ -10,9 +10,7 @@ namespace EcommerceDAL
     public static class DAL
     {
 
-
         private static EcommerceDAL.EcommerceEntity _entities = new EcommerceEntity();
-
         
         public static List<User> GetUsers()
         {
@@ -28,7 +26,6 @@ namespace EcommerceDAL
 
             return user;
         }
-
 
         public static void AddUser(User user)
         {

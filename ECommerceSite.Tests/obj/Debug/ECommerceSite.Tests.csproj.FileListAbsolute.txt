@@ -33,3 +33,6 @@ C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\ECommerceSite.
 C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\ECommerceSite.Tests\bin\Debug\CommonUtils.pdb
 C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\ECommerceSite.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\ECommerceSite.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\ECommerceSite.Tests\bin\Debug\Moq.dll
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\ECommerceSite.Tests\bin\Debug\Moq.pdb
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\ECommerceSite.Tests\bin\Debug\Moq.xml

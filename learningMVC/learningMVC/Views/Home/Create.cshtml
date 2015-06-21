@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+@model  learningMVC.Models.Employee
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+    
+        <div>@Html.LabelFor(m=>m.Name)</div>
+        <div>@Html.TextBoxFor(m => m.Name)</div>
+        <div>@Html.ValidationMessageFor(m=>m.Name)</div>
+
+
+        <div>@Html.LabelFor(m => m.Age)</div>
+        <div>@Html.TextBoxFor(m => m.Age)</div>
+        <div>@Html.ValidationMessageFor(m => m.Age)</div>
+
+
+        <div>@Html.LabelFor(m => m.DOB)</div>
+        <div>@Html.TextBoxFor(m => m.DOB)</div>
+        <div>@Html.ValidationMessageFor(m => m.DOB)</div>
+
+
+        <div>@Html.LabelFor(m => m.Email)</div>
+        <div>@Html.TextBoxFor(m => m.Email)</div>
+        <div>@Html.ValidationMessageFor(m => m.Email)</div>
+
+        
+        <div><input type="submit" value="Create" /></div>
+    </div>
+    @section Scripts
+{
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>

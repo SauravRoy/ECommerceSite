@@ -46,3 +46,6 @@ C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\EcommerceServi
 C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\EcommerceServiceLayer\bin\Microsoft.Practices.ServiceLocation.xml
 C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\EcommerceServiceLayer\bin\Microsoft.Practices.Unity.xml
 C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\EcommerceServiceLayer\bin\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\EcommerceServiceLayer\bin\Moq.dll
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\EcommerceServiceLayer\bin\Moq.pdb
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\EcommerceServiceLayer\bin\Moq.xml
