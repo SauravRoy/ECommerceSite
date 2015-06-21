@@ -64,7 +64,7 @@ namespace ECommerceSite.Controllers
 
         }
 
-        public ActionResult CreateOrder([FromBody] OrderModel model)
+        public string CreateOrder([FromBody] OrderModel model)
         {
             var response = new HttpResponseMessage();
 
@@ -83,11 +83,11 @@ namespace ECommerceSite.Controllers
                     model
 
                 }, new JsonMediaTypeFormatter()).Result;
-                
 
+                _mail.Notify("");
             }
 
-            return null;
+            return "Success";
         }
 
         public ActionResult AddToCart(int Id)

@@ -10,6 +10,7 @@ namespace CommonUtils
     {
 
         void SendMail(string Email,string password);
+        void Notify(string Email);
 
     }
 }
