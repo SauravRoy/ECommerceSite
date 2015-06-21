@@ -27,6 +27,7 @@ namespace ECommerceSite.Controllers
         public ActionResult Index()
         {
             return View();
+
         }
 
         
@@ -43,7 +44,7 @@ namespace ECommerceSite.Controllers
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                     response = client.GetAsync("api/auth/" + model.UserName).Result;
-
+                    FormsAuthentication.SetAuthCookie(model.UserName, true);
 
                 }
 
@@ -59,10 +60,6 @@ namespace ECommerceSite.Controllers
             {
                 return View();
             }
-
-
-
-
 
         }
 
@@ -110,9 +107,6 @@ namespace ECommerceSite.Controllers
             {
                 return View();
             }
-            
-
-
             
         }
 

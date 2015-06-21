@@ -1,24 +1,32 @@
-﻿using ECommerceSite.Models;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using CommonUtils;
+using ECommerceSite.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 
 namespace ECommerceSite.Controllers
 {
     public class CartController : Controller
     {
+
+        private readonly ILogger _logger;
+        private readonly IMail _mail;
+
+        public CartController(ILogger logger, IMail mail)
+        {
+            _logger = logger;
+            _mail = mail;
+        }
+
         // GET: Cart
         public ActionResult Index()
         {
+
             var response = new HttpResponseMessage();
             OrderModel model = new OrderModel();
             Random random = new Random();
@@ -27,24 +35,35 @@ namespace ECommerceSite.Controllers
 
             model.Visible = false;
 
-            using (var client = new System.Net.Http.HttpClient())
+            try
             {
-                client.BaseAddress = new System.Uri(ConfigurationManager.AppSettings["ServiceBaseUrl"].ToString());
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                response = client.GetAsync("api/Product/",HttpCompletionOption.ResponseHeadersRead).Result;
-                var result = response.Content.ReadAsAsync<List<ProductModel>>();
-                model.products = result.Result;
 
-                //Keep it in Cache with cache dependency for future use
-                HttpContext.Cache["ProductsCache"] = model.products;
+                using (var client = new System.Net.Http.HttpClient())
+                {
+                    client.BaseAddress = new System.Uri(ConfigurationManager.AppSettings["ServiceBaseUrl"].ToString());
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    response = client.GetAsync("api/Product/", HttpCompletionOption.ResponseHeadersRead).Result;
+                    var result = response.Content.ReadAsAsync<List<ProductModel>>();
+                    model.products = result.Result;
 
+                    //Keep it in Cache with cache dependency for future use
+                    HttpContext.Cache["ProductsCache"] = model.products;
+
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                _logger.LogMessage(ex);
             }
 
             return View(model);
+
+
         }
 
-        public ActionResult CreateOrder(OrderModel model)
+        public ActionResult CreateOrder([FromBody] OrderModel model )
         {
             // create Order and redirect to OrderView Details 
             return null;
