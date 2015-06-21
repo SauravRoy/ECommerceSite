@@ -55,5 +55,20 @@ namespace EcommerceDAL
             
             _entities.Products.Add(product);
         }
+
+        public static void AddOrder(Order order)
+        {
+
+            _entities.Orders.Add(order);
+            _entities.SaveChanges();
+
+        }
+
+        public static Order  GetOrder(int id)
+        {
+
+            return _entities.Orders.FirstOrDefault(m => m.UserId == id);
+
+        }
     }
 }

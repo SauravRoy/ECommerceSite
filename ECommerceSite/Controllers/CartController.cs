@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -63,9 +64,29 @@ namespace ECommerceSite.Controllers
 
         }
 
-        public ActionResult CreateOrder([FromBody] OrderModel model )
+        public ActionResult CreateOrder([FromBody] OrderModel model)
         {
-            // create Order and redirect to OrderView Details 
+            var response = new HttpResponseMessage();
+
+
+            model.products.Add(new ProductModel { ID = 1, Name = "XL 42 Levis T Shirt", Price = 500 });
+            model.UserId = 1;
+            
+
+            using (var client = new System.Net.Http.HttpClient())
+            {
+                client.BaseAddress = new System.Uri(ConfigurationManager.AppSettings["ServiceBaseUrl"].ToString());
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                response = client.PostAsync("api/Order/", new
+                {
+                    model
+
+                }, new JsonMediaTypeFormatter()).Result;
+                
+
+            }
+
             return null;
         }
 

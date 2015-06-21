@@ -19,6 +19,8 @@ namespace EcommerceDAL
         public Nullable<int> Status { get; set; }
         public Nullable<int> UserId { get; set; }
         public Nullable<int> ProductId { get; set; }
+        public Nullable<int> Qty { get; set; }
+        public Nullable<double> Total { get; set; }
     
         public virtual User User { get; set; }
         public virtual Product Product { get; set; }

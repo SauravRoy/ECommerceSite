@@ -9,6 +9,8 @@
     <Property Name="Status" Type="int" />
     <Property Name="UserId" Type="int" />
     <Property Name="ProductId" Type="int" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="Total" Type="float" />
   </EntityType>
   <EntityType Name="Products">
     <Key>

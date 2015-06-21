@@ -11,6 +11,8 @@
     <Property Name="ProductId" Type="Int32" />
     <NavigationProperty Name="User" Relationship="Self.FK_Users_Orders" FromRole="Orders" ToRole="Users" />
     <NavigationProperty Name="Product" Relationship="Self.FK_Users_Products" FromRole="Orders" ToRole="Products" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="Total" Type="Double" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
