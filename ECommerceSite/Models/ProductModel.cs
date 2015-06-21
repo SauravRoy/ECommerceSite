@@ -11,5 +11,6 @@ namespace ECommerceSite.Models
         public string Name { get; set; }
         public float Price { get; set; }
         public int Qty { get; set; }
+
     }
 }
