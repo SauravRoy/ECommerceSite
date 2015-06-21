@@ -6,6 +6,7 @@ using System.Net.Http;
 using CommonUtils;
 using System.Configuration;
 using System.Net.Http.Formatting;
+using System.Web.Security;
 
 namespace ECommerceSite.Controllers
 {
@@ -28,30 +29,44 @@ namespace ECommerceSite.Controllers
             return View();
         }
 
-        [HttpPost]
+        
         public ActionResult AuthUser(UserModel model)
         {
-            var response = new HttpResponseMessage();
-
-            using (var client = new System.Net.Http.HttpClient())
+            if (ModelState.IsValid)
             {
-                client.BaseAddress = new System.Uri(ConfigurationManager.AppSettings["ServiceBaseUrl"].ToString());
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                
-                response =  client.GetAsync("api/auth/"+ model.UserName).Result;
+                var response = new HttpResponseMessage();
 
-               
+                using (var client = new System.Net.Http.HttpClient())
+                {
+                    client.BaseAddress = new System.Uri(ConfigurationManager.AppSettings["ServiceBaseUrl"].ToString());
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    response = client.GetAsync("api/auth/" + model.UserName).Result;
+
+
+                }
+
+                if (response.IsSuccessStatusCode)
+                {
+                   return Json(Url.Action("Index", "Home"));
+                    
+                }
+                else
+                    return Json("Failed", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return View();
             }
 
-            if (response.IsSuccessStatusCode)
-                return RedirectToAction("Index", "Home");
-            else
-                return Json("Failed", JsonRequestBehavior.AllowGet);
-            
+
+
+
+
         }
 
-        
+
         public ActionResult ForgotPassword(UserModel model)
         {
             return View();
