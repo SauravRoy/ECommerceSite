@@ -84,6 +84,8 @@ namespace ECommerceSite.Controllers
 
                 }, new JsonMediaTypeFormatter()).Result;
 
+
+                //Notify User of Order Placed .
                 _mail.Notify("");
             }
 
