@@ -26,7 +26,7 @@ namespace ECommerceSite.Controllers
             _mail = mail;
         }
 
-        [CustomAuthorize("Home", "Index")]
+        [CustomAuthorize]
         public ActionResult Index()
         {    
                 return View();
