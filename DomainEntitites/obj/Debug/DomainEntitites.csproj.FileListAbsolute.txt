@@ -1,5 +1,5 @@
-c:\users\user\documents\visual studio 2015\Projects\ECommerceSite\DomainEntitites\bin\Debug\DomainEntitites.dll
-c:\users\user\documents\visual studio 2015\Projects\ECommerceSite\DomainEntitites\bin\Debug\DomainEntitites.pdb
-c:\users\user\documents\visual studio 2015\Projects\ECommerceSite\DomainEntitites\obj\Debug\DomainEntitites.dll
-c:\users\user\documents\visual studio 2015\Projects\ECommerceSite\DomainEntitites\obj\Debug\DomainEntitites.pdb
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\DomainEntitites\bin\Debug\DomainEntitites.dll
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\DomainEntitites\bin\Debug\DomainEntitites.pdb
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\DomainEntitites\obj\Debug\DomainEntitites.dll
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\DomainEntitites\obj\Debug\DomainEntitites.pdb
 C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\DomainEntitites\obj\Debug\DomainEntitites.csprojResolveAssemblyReference.cache

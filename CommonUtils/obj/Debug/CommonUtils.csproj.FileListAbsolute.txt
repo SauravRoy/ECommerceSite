@@ -1,5 +1,5 @@
-c:\users\user\documents\visual studio 2015\Projects\ECommerceSite\CommonUtils\bin\Debug\CommonUtils.dll
-c:\users\user\documents\visual studio 2015\Projects\ECommerceSite\CommonUtils\bin\Debug\CommonUtils.pdb
-c:\users\user\documents\visual studio 2015\Projects\ECommerceSite\CommonUtils\obj\Debug\CommonUtils.dll
-c:\users\user\documents\visual studio 2015\Projects\ECommerceSite\CommonUtils\obj\Debug\CommonUtils.pdb
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\CommonUtils\bin\Debug\CommonUtils.dll
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\CommonUtils\bin\Debug\CommonUtils.pdb
 C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\CommonUtils\obj\Debug\CommonUtils.csprojResolveAssemblyReference.cache
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\CommonUtils\obj\Debug\CommonUtils.dll
+C:\Users\User\documents\visual studio 2015\Projects\ECommerceSite\CommonUtils\obj\Debug\CommonUtils.pdb

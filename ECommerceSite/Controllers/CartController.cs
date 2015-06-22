@@ -44,7 +44,7 @@ namespace ECommerceSite.Controllers
                     client.BaseAddress = new System.Uri(ConfigurationManager.AppSettings["ServiceBaseUrl"].ToString());
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    response = client.GetAsync("api/Product/", HttpCompletionOption.ResponseHeadersRead).Result;
+                    response = client.GetAsync("api/Product/").Result;
                     var result = response.Content.ReadAsAsync<List<ProductModel>>();
                     model.products = result.Result;
 
